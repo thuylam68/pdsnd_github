@@ -139,11 +139,21 @@ def trip_duration_stats(df):
     
     # display total travel time
     total_travel_time = df['Trip Duration'].sum()
-    print('Total trip duration: {} seconds, or {} hours'.format(total_travel_time, total_travel_time/3600))
+    print(
+        'Total trip duration: {second} seconds, or {hour} hours'.format(
+            second=total_travel_time,
+            hour=total_travel_time/3600,
+        )
+    )
 
     # display mean travel time
     mean_travel_time = df['Trip Duration'].mean()
-    print('Average trip duration: {} seconds, or {} hours'.format(mean_travel_time, mean_travel_time/3600))
+    print(
+        'Average trip duration: {} seconds, or {} hours'.format(
+            second=mean_travel_time,
+            hour=mean_travel_time/3600,
+        )
+    )
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -194,8 +204,8 @@ def display_data(df):
             break
         print(r)
 
-# run all functions and prompt user to start over
-def run():
+
+def main():
     while True:
         city, month, day = get_filters()
         df = load_data(city, month, day)
@@ -210,4 +220,4 @@ def run():
             break
 
 if __name__ == '__main__':
-    run()
+    main()
