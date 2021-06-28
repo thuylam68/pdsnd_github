@@ -203,7 +203,7 @@ def display_data(df):
         print(r)
 
 
-def run():
+def main():
     while True:
         city, month, day = get_filters()
         df = load_data(city, month, day)
@@ -218,4 +218,4 @@ def run():
             break
 
 if __name__ == '__main__':
-    run()
+    main()
